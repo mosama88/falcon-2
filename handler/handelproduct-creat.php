@@ -35,17 +35,20 @@ if($_SERVER ['REQUEST_METHOD'] == "POST" && isset ($_POST['name'])){
     $tmp = explode('.', $fileToUploadName);
     $fileUploadExt = strtolower(end($tmp));
     // Location Of File Upload
-    $moveUpload = move_uploaded_file($fileToUploadTmp,$_SERVER['DOCUMENT_ROOT'] .'\Falcon\public\assets\img\uploadFiles\\'   . $fileToUploadName );
+    $moveUpload = move_uploaded_file($fileToUploadTmp,$_SERVER['DOCUMENT_ROOT'] .'\Falcon\assets\img\uploadFiles\\'   . $fileToUploadName );
     
     
     // Validation For Empty File Uploaded
     if($fileToUploadErorr == 4){
         $errors []= "No File Chosen";
         // Validation For File Upload
-    }elseif(! in_array($fileUploadExt,$allowedExt)){
-        $errors []= "Your File Is Not Allowed Please Choose jpg Or Jpeg Or png";
     }elseif(!empty($moveUpload)){
-        $errors []= "";
+        $errors []= "Not File Upload";
+        
+    }elseif(!in_array($fileUploadExt,$allowedExt)){
+         $errors []= "Your File Is Not Allowed Please Choose jpg Or Jpeg Or png";
+         header("location: ../product-create.php");
+         die();
     }
     
     // Start Validation INPUT Name
@@ -95,3 +98,46 @@ if($_SERVER ['REQUEST_METHOD'] == "POST" && isset ($_POST['name'])){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  // Validation $_Files['image']
+//  $target_dir = "/assets/img/uploadImage//";
+//  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//  $uploadOk = 1;
+//  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+//  // Check if image file is a actual image or fake image
+//  if(isset($_POST["submit"])) {
+//    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+//    if($check !== false) {
+//      echo "File is an image - " . $check["mime"] . ".";
+//      $uploadOk = 1;
+//    } else {
+//      echo "File is not an image.";
+//      $uploadOk = 0;
+//    }
+//  }
