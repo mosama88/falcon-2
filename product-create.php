@@ -90,7 +90,7 @@
             ?>
 
                 <!-- END Code successs -->
-
+     
 
 
         <!-- Form Product -->
@@ -137,8 +137,8 @@
                 </div>
                 <!-- Description -->
                 <div class="mb-3">
-                  <label class="form-label">Product Description</label>
-                  <label class="form-label" for="exampleFormControlTextarea1">Example textarea</label>
+                  <!-- <label class="form-label">Product Description</label> -->
+                  <label class="form-label" for="exampleFormControlTextarea1">Product Description</label>
                   <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <!-- Submit -->
